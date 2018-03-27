@@ -19,6 +19,6 @@ class Tasklist extends React.Component {
 
 }
 
-const mapStateToProps = state => ({ ...state.todos });
+const mapStateToProps = state => ({ ...state.tasks });
 
 export default connect(mapStateToProps)(Tasklist);
