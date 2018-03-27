@@ -2,7 +2,7 @@ import * as types from '../constants/ActionTypes';
 import { List, Map } from 'immutable';
 import { combineReducers } from 'redux';
 
-function todoList(state = List(), action) {
+function taskList(state = List(), action) {
     switch (action.type) {
         default:
             return state;
@@ -10,5 +10,5 @@ function todoList(state = List(), action) {
 }
 
 export default combineReducers({
-    todoList,
+    taskList,
 })
