@@ -4,15 +4,27 @@ import TaskItem from './task-item';
 class Section extends React.Component {
 
     render() {
-        const { taskList } = this.props;
+        const { type, taskList } = this.props;
+        var sectionName;
+        switch (type) {
+            case 'completed':
+                sectionName = '已完成';
+                break;
+            default:
+                sectionName = '未完成';
+                break;
+        }
         return (
             <section>
-                {taskList && (this.props.taskList.map(task => {
-                        return (
-                            <TaskItem task={task} key={task.toObject().id}></TaskItem>
-                        );
-                    })
-                )}
+                <h3>{sectionName}</h3>
+                <ul>
+                    {taskList && (this.props.taskList.map(task => {
+                            return (
+                                <TaskItem dispatch={this.props.dispatch} task={task} key={task.get('id')}></TaskItem>
+                            );
+                        })
+                    )}
+                </ul>
             </section>
         );
     }
