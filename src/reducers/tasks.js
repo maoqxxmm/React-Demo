@@ -19,7 +19,15 @@ function taskList(state = List(), action) {
                 } else {
                     return task;
                 }
-            })            
+            })
+        case (types.UPDATE_TASK_TITLE):
+            return state.map(task => {
+                if (task.get('id') === action.id) {
+                    return task.update('title', v => action.title);
+                } else {
+                    return task;
+                }
+            })    
         default:
             return state;
     }

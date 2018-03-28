@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 import ContentEditable from 'react-contenteditable'
-import { toggleCompleteTask } from '../../actions/tasks';
+import { toggleCompleteTask, updateTaskTitle } from '../../actions/tasks';
 
 class TaskItem extends React.Component {
 
@@ -13,7 +13,7 @@ class TaskItem extends React.Component {
         return (
             <li className={classNames}>
                 <button className="check-toggle" onClick={() => this.props.dispatch(toggleCompleteTask(id))}></button>
-                <ContentEditable className="title" html={title}></ContentEditable>
+                <ContentEditable className="title" html={title} onChange={(e) => this.props.dispatch(updateTaskTitle(id, e.target.value))}></ContentEditable>
             </li>
         );
     }

@@ -12,3 +12,9 @@ export const toggleCompleteTask = id => ({
     type: types.TOGGLE_COMPLETE_TASK,
     id
 })
+
+export const updateTaskTitle = (id, title) => ({
+    type: types.UPDATE_TASK_TITLE,
+    id,
+    title
+})
