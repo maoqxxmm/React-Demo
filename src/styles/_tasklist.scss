@@ -16,19 +16,31 @@
 
     .task-item {
         display: flex;
+        height: 30px;
+        line-height: 30px;
+        margin-top: 10px;
 
         &.completed {
             text-decoration: line-through;
         }
 
         .check-toggle {
-            width: 20px;
-            margin-right: 20px;
+            width: 30px;
+            margin-right: 30px;
+        }
+
+        .delete-task {
+            width: 30px;
+            margin-left: 30px;
         }
 
         .title {
             flex: 1;
-            border: 1px solid rgba(0, 0, 0, 0.54);
+            padding: 0 10px;
+
+            &:hover {
+                background: #ccc;
+            }
         }
     }
 }

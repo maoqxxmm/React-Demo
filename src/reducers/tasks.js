@@ -27,7 +27,9 @@ function taskList(state = List(), action) {
                 } else {
                     return task;
                 }
-            })    
+            })   
+        case (types.DELETE_TASK):
+            return state.filter(task => task.get('id') !== action.id);
         default:
             return state;
     }

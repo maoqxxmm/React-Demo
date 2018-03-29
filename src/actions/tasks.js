@@ -18,3 +18,8 @@ export const updateTaskTitle = (id, title) => ({
     id,
     title
 })
+
+export const deleteTask = (id) => ({
+    type: types.DELETE_TASK,
+    id
+})
