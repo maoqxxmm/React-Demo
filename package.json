@@ -96,6 +96,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "eslintIgnore": ["src/libs/*.js"],
   "devDependencies": {
     "node-sass": "^4.8.3",
     "redux-devtools-extension": "^2.13.2",
