@@ -1,11 +1,10 @@
 import * as types from '../constants/ActionTypes';
-
-let idCounter = 0;
+import ObjectId from '../libs/ObjectId';
 
 export const addTask = text => ({
     type: types.ADD_TASK,
     text,
-    id: ++idCounter
+    id: ObjectId()
 })
 
 export const toggleCompleteTask = id => ({
@@ -17,4 +16,9 @@ export const updateTaskTitle = (id, title) => ({
     type: types.UPDATE_TASK_TITLE,
     id,
     title
+})
+
+export const deleteTask = (id) => ({
+    type: types.DELETE_TASK,
+    id
 })
