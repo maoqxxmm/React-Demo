@@ -1,0 +1,41 @@
+.lists {
+  padding-top: 20px;
+  overflow: hidden;
+  height: 100%;
+  box-sizing: border-box;
+  .project-list-inner {
+    height: 100%;
+    overflow: auto;
+  }
+  li > a {
+    color: #fff;  
+    font-size: 0;
+    display: block;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 16px 0 12px;
+    &:hover {
+      background-color: rgba(0,0,0,.05);
+    }
+    &.active {
+      background-color: rgba(0,0,0,.14);
+    }
+    .l-title {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: inline-block;
+      max-width: 160px;
+      min-width: 150px;
+      font-size: 14px;
+      opacity: .7;    
+    }
+  }
+  .l-divider {
+    background-color: rgba(0,0,0,.08);
+    margin: 10px 0;
+    height: 1px;
+    width: 100%;
+  }
+  
+}

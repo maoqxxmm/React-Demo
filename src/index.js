@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import { devToolsEnhancer } from 'redux-devtools-extension';
 import rootReducer from './reducers';
 import './styles/main.scss';
+import LeftView from './routers/leftview';
 import Tasklist from './routers/tasklist';
 import registerServiceWorker from './registerServiceWorker';
 
@@ -15,9 +16,12 @@ const store = createStore(rootReducer, /* preloadedState, */ devToolsEnhancer(
 
 ReactDOM.render(
     <Provider store={store}>
-        <Router>
+        <Router hashType="noslash">
             <div>
-                <Route path="/" component={Tasklist} />
+            <Route path="/" component={LeftView}></Route>
+            <Route path="/q/:name/:type" component={Tasklist}></Route>
+            <Route path="/p/:name/:type" component={Tasklist}></Route>
+            <Route path="/g/:name/:type" component={Tasklist}></Route>
             </div>
         </Router>
     </Provider>,

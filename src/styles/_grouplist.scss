@@ -1,0 +1,40 @@
+.g-container {
+  &.open {
+    background-color: rgba(0, 0, 0, 0.05);
+    .g-project-ul {
+      display: block;
+    }
+  }
+  .g-header {
+    color: #fff;
+    font-size: 0;
+    display: block;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 16px 0 12px;
+    input {
+      position: absolute;
+      z-index: 1;
+      top: 2px;
+      width: 160px;
+    }
+    .l-title {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: inline-block;
+      max-width: 160px;
+      min-width: 150px;
+      font-size: 14px;
+      opacity: .7;    
+    }
+  }
+  .g-project-ul {
+    display: none;
+    li > a {
+      box-shadow: transparent 4px 0px 0px inset;
+      padding-left: 28px;
+    }
+  }
+
+}
