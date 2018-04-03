@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import cn from 'classnames';
 import ContentEditable from 'react-contenteditable'
 import { toggleCompleteTask, updateTaskTitle, deleteTask } from '../../actions/tasks';
+import { DragDropContext } from 'react-beautiful-dnd';
 
 class TaskItem extends React.Component {
 
@@ -12,11 +13,13 @@ class TaskItem extends React.Component {
             completed: status > 0
         })
         return (
-            <li className={classNames}>
-                <button className="check-toggle" onClick={() => this.props.onToggleTask(id)}></button>
-                <ContentEditable className="title" html={title} onChange={(e) => this.props.onUpdateTitle(id, e.target.value)}></ContentEditable>
-                <button className="delete-task" onClick={() => this.props.onDeleteTask(id)}>X</button>
-            </li>
+            <DragDropContext>
+                <li className={classNames}>
+                    <button className="check-toggle" onClick={() => this.props.onToggleTask(id)}></button>
+                    <ContentEditable className="title" html={title} onChange={(e) => this.props.onUpdateTitle(id, e.target.value)}></ContentEditable>
+                    <button className="delete-task" onClick={() => this.props.onDeleteTask(id)}>X</button>
+                </li>
+            </DragDropContext>
         );
     }
 

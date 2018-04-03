@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { getAllTodoTasks, getTodoTasksInProject, getTodayAndOverdueTasks, getTomorrowTasks } from '../../selectors';
 import Section from './section';
+import sort from '../../utils/sort';
 
 class List extends React.Component {
 
@@ -10,7 +11,8 @@ class List extends React.Component {
             todo: [],
             completed: [],
         };
-        this.props.taskList.forEach(task => {
+        const sortedTaskList = this.props.taskList.sort(sort.sortOrder);
+        sortedTaskList.forEach(task => {
             const { status } = task.toObject();
             if (status === 0) {
                 listMap.todo.push(task);
