@@ -6,6 +6,7 @@
     right: 36%;
     height: 100%;
     padding: 0 20px;
+    overflow-y: auto;
     
 
     .task-input {
@@ -42,7 +43,10 @@
 
         .title {
             flex: 1;
-            padding: 0 10px;
+            margin: 0 10px;
+            white-space: nowrap;
+            word-break: keep-all;
+            overflow: hidden;
 
             &:hover {
                 background: #ccc;

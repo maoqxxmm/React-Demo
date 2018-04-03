@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { getAllTodoTasks, getTodoTasksInProject, getTodayAndOverdueTasks, getTomorrowTasks } from '../../selectors';
 import Section from './section';
 
 class List extends React.Component {
@@ -23,11 +25,30 @@ class List extends React.Component {
         const listMap = this.filterTaskList();
         return (
             <div>
-                <Section type="todo" taskList={listMap.todo} dispatch={this.props.dispatch}></Section>
-                <Section type="completed" taskList={listMap.completed} dispatch={this.props.dispatch}></Section>
+                <Section type="todo" taskList={listMap.todo}></Section>
+                <Section type="completed" taskList={listMap.completed}></Section>
             </div>
         );
     }
 }
 
-export default List;
+const mapStateToProps = (state, props) => {
+    return {
+        taskList: getTaskListByProjectId(props.projectId, state, props)
+    };
+};
+
+const getTaskListByProjectId = (projectId, state, props) => {
+    switch (projectId) {
+        case 'tasks':
+            return getAllTodoTasks(state, props);
+        case 'today':
+            return getTodayAndOverdueTasks(state, props);
+        case 'tomorrow':
+            return getTomorrowTasks(state, props);
+        default:
+            return getTodoTasksInProject(state, props);
+    }
+}
+
+export default connect(mapStateToProps)(List);

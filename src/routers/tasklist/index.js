@@ -7,18 +7,26 @@ import List from './list';
 class Tasklist extends React.Component {
 
     render() {
-        const { dispatch, taskList } = this.props;
+        const { dispatch, match, projectList, smartProjectList } = this.props;
+        const pList = projectList.concat(smartProjectList);
+        const isSmartList = match.params.name === 'all';
+        const projectId = isSmartList ? match.params.type : match.params.name;
+        const project = pList.find(p => {
+            return p.get('id') === projectId;
+        });
+        const projectName = project ? project.get('name') : '收集箱';
+
         return (
             <div className="tasklist">
-                <Titlebar projectName="收集箱"></Titlebar>
+                <Titlebar projectName={projectName}></Titlebar>
                 <QuickAdd dispatch={dispatch}></QuickAdd>
-                <List dispatch={dispatch} taskList={taskList}></List>
+                <List projectId={projectId}></List>
             </div>
         );
     }
 
 }
 
-const mapStateToProps = state => ({ ...state.tasks });
+const mapStateToProps = state => ({ ...state.projects });
 
 export default connect(mapStateToProps)(Tasklist);

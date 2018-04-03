@@ -20,7 +20,7 @@ class Section extends React.Component {
                 <ul>
                     {taskList && (this.props.taskList.map(task => {
                             return (
-                                <TaskItem dispatch={this.props.dispatch} task={task} key={task.get('id')}></TaskItem>
+                                <TaskItem task={task} key={task.get('id')}></TaskItem>
                             );
                         })
                     )}
