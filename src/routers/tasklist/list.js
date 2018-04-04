@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { getAllTodoTasks, getTodoTasksInProject, getTodayAndOverdueTasks, getTomorrowTasks } from '../../selectors';
 import Section from './section';
 import sort from '../../utils/sort';
+import { DragDropContext } from 'react-beautiful-dnd';
 
 class List extends React.Component {
 
@@ -23,13 +24,19 @@ class List extends React.Component {
         return listMap;
     }
 
+    onDragEnd() {
+
+    }
+
     render() {
         const listMap = this.filterTaskList();
         return (
-            <div>
-                <Section type="todo" taskList={listMap.todo}></Section>
-                <Section type="completed" taskList={listMap.completed}></Section>
-            </div>
+            <DragDropContext onDragEnd={() => this.onDragEnd}>
+                <div>
+                    <Section type="todo" taskList={listMap.todo}></Section>
+                    <Section type="completed" taskList={listMap.completed}></Section>
+                </div>
+            </DragDropContext>
         );
     }
 }

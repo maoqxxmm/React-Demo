@@ -1,7 +1,7 @@
 .lists {
   padding-top: 20px;
   overflow: hidden;
-  height: 100%;
+  height: calc(100% - 20px);
   box-sizing: border-box;
   .project-list-inner {
     height: 100%;

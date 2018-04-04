@@ -104,6 +104,7 @@
   "devDependencies": {
     "node-sass": "^4.8.3",
     "redux-devtools-extension": "^2.13.2",
-    "sass-loader": "^6.0.7"
+    "sass-loader": "^6.0.7",
+    "svg-spritemap-webpack-plugin": "^1.0.0"
   }
 }
