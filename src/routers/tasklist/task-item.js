@@ -4,6 +4,7 @@ import cn from 'classnames';
 import ContentEditable from 'react-contenteditable'
 import { toggleCompleteTask, updateTaskTitle, deleteTask } from '../../actions/tasks';
 import { Draggable } from 'react-beautiful-dnd';
+import Icon from '../../components/icon';
 
 class TaskItem extends React.Component {
 
@@ -24,6 +25,7 @@ class TaskItem extends React.Component {
                             <button className="check-toggle" onClick={() => this.props.onToggleTask(id)}></button>
                             <ContentEditable className="title" html={title} onChange={(e) => this.props.onUpdateTitle(id, e.target.value)}></ContentEditable>
                             <button className="delete-task" onClick={() => this.props.onDeleteTask(id)}>X</button>
+                            <Icon name="attachment"></Icon>
                         </div>
                         {provided.placeholder}
                     </li>
